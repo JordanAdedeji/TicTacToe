@@ -9,40 +9,59 @@ window.addEventListener('load', function(){
   let b3 = document.getElementById('b3');
   let c3 = document.getElementById('c3');
 
+  let tictactoe = new Tictactoe();
 });
-
-
 
 function Tictactoe() {
   this.moves = new Array(9);
   this.cellIds = [a1,a2,a3,b1,b2,b3,c1,c2,c3];
   this.display="X";
-  this.player1=true;
+  this.bin = {}
+  this._setup();
+  this.updateDom();
 }
 
 Tictactoe.prototype= {
-  _setup: function(){
 
+  _setup: function(){
   },
 
-  display: function(){
-      console.log('display');
-      return 'O';
+  updateDom: function(){
+    this.clickIDs();
   },
 
   clickIDs: function(){
-
-  this.cellIds.forEach(function(cell){
-    let player1=this.player1;
+    let player1=true;
+    let bin = {};
+    var game = this;
+    game.cellIds.forEach(function(cell){
       cell.addEventListener('click', function(){
-        if (player1){
-        cell.innerHTML='X';
-        player1=false;
-      }else{
-        cell.innerHTML='O';
-        player1=true;
-      }
+
+          if (player1){
+            cell.innerHTML="<img src='public/xico.png'>";
+            let n = cell.id.toString();
+            console.log(this)
+            console.log(game)
+            game.bin[n] = "X";
+            console.log(game.bin);
+            player1=false;
+          }
+          else{
+            cell.innerHTML="<img src='public/oico.png'>";
+            player1=true;
+            let n = cell.id.toString();
+            console.log(this)
+            console.log(game)
+            game.bin[n] = "O";
+            console.log(game.bin);
+            // console.log(bin);
+          }
+        })
       })
-    })
-  }
+      // this.arr = function(){return bin}
+      // console.log(this.arr);
+    }
+
+      // this.returnedArray = bin;}
 }
+    // console.log(this.returnedArray);
