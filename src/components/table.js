@@ -1,8 +1,9 @@
 function TableCreate(){
- boardgame = this
- var body = document.body,
- table = document.createElement('table');
- table.style.width  = '320px';
+  boardgame = this
+  var body = document.body;
+  var gameSection = document.getElementById('section-game');
+  this.table = document.createElement('table');
+  this.table.setAttribute("id", "gametable");
  var tr1 = table.insertRow();
  var tr2 = table.insertRow();
  var tr3 = table.insertRow();
@@ -24,14 +25,5 @@ function TableCreate(){
  this.c1.setAttribute("id", "c1");
  this.c2.setAttribute("id", "c2");
  this.c3.setAttribute("id", "c3");
- this.a1.style.border = '1px solid black';
- this.a2.style.border = '1px solid black';
- this.a3.style.border = '1px solid black';
- this.b1.style.border = '1px solid black';
- this.b2.style.border = '1px solid black';
- this.b3.style.border = '1px solid black';
- this.c1.style.border = '1px solid black';
- this.c2.style.border = '1px solid black';
- this.c3.style.border = '1px solid black';
- body.appendChild(table);
+ gameSection.appendChild(table);
 }
